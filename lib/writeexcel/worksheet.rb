@@ -1211,7 +1211,7 @@ class Worksheet < BIFFWriter
 
     # Check for a column reference in A1 notation and substitute.
     # Convert col ref to a cell ref and then to a col number.
-    dummy, col = substitute_cellref("#{col}1") if col =~ /^\D/
+    dummy, col = substitute_cellref("#{col}1") if col.to_s =~ /^\D/
 
     # Reject column if it is outside filter range.
     unless @filter_area.inside?(col)
@@ -4819,7 +4819,7 @@ class Worksheet < BIFFWriter
     # Special handling of "Top" filter expressions.
     if tokens[0] =~ /^top|bottom$/i
       value = tokens[1]
-      if (value =~ /\D/ or value.to_i < 1 or value.to_i > 500)
+      if (value.to_s =~ /\D/ or value.to_i < 1 or value.to_i > 500)
         raise "The value '#{value}' in expression '#{expression}' " +
         "must be in the range 1 to 500"
       end
@@ -4848,7 +4848,7 @@ class Worksheet < BIFFWriter
     end
 
     # Special handling for Blanks/NonBlanks.
-    if (token =~ /^blanks|nonblanks$/i)
+    if (token.to_s =~ /^blanks|nonblanks$/i)
       # Only allow Equals or NotEqual in this context.
       if (operator != 2 and operator != 5)
         raise "The operator '#{tokens[1]}' in expression '#{expression}' " +
@@ -4874,7 +4874,7 @@ class Worksheet < BIFFWriter
 
     # if the string token contains an Excel match character then change the
     # operator type to indicate a non "simple" equality.
-    if (operator == 2 and token =~ /[*?]/)
+    if (operator == 2 and token.to_s =~ /[*?]/)
       operator = 22
     end
 
