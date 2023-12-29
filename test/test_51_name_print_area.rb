@@ -48,7 +48,7 @@ class TC_Name_Print_Area < Test::Unit::TestCase
         00 00 00 06 3B 00 00 00 00 0B 00 00 00 01 00
      ).join('')].pack('H*')
 
-    caption    = " \t+ Name      ( Sheet1!#{area} )";
+    #caption    = " \t+ Name      ( Sheet1!#{area} )";
     result     = _unpack_name(@workbook.data)
     target     = _unpack_name(target)
     assert_equal(target, result)
@@ -102,7 +102,7 @@ class TC_Name_Print_Area < Test::Unit::TestCase
         17 00 08 00 01 00 00 00 00 00 00 00
      ).join('')].pack('H*')
 
-    caption    = " \tExternsheet"
+    #caption    = " \tExternsheet"
     result     = _unpack_externsheet(@workbook.data)
     target     = _unpack_externsheet(target)
     assert_equal(target, result)
@@ -116,7 +116,7 @@ class TC_Name_Print_Area < Test::Unit::TestCase
         00 00 00 06 3B 00 00 00 00 FF FF 00 00 00 00
      ).join('')].pack('H*')
 
-    caption    = " \t+ Name      ( Sheet1!#{area} )";
+    #caption    = " \t+ Name      ( Sheet1!#{area} )";
     result     = _unpack_name(@workbook.data)
     target     = _unpack_name(target)
     assert_equal(target, result)
@@ -150,7 +150,7 @@ class TC_Name_Print_Area < Test::Unit::TestCase
         00 00 00 06 3B 00 00 00 00 FF FF 00 00 07 00
      ).join('')].pack('H*')
 
-    caption    = " \t+ Name      ( Sheet1!#{area} )";
+    #caption    = " \t+ Name      ( Sheet1!#{area} )";
     result     = _unpack_name(@workbook.data)
     target     = _unpack_name(target)
     assert_equal(target, result)
@@ -174,7 +174,7 @@ class TC_Name_Print_Area < Test::Unit::TestCase
         01 00 00 00 02 00 02 00
      ).join('')].pack('H*')
 
-    caption    = " \tExternsheet"
+    #caption    = " \tExternsheet"
     result     = _unpack_externsheet(@workbook.data)
     target     = _unpack_externsheet(target)
     assert_equal(target, result)

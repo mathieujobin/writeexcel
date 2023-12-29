@@ -21,7 +21,7 @@ class TC_Name_Stored < Test::Unit::TestCase
   end
 
   def test_print_area_name_with_simple_range
-    caption        = " \tNAME for worksheet1.print_area('A1:B12')"
+    #caption        = " \tNAME for worksheet1.print_area('A1:B12')"
     name           = [0x06].pack('C')
     encoding       = 0
     sheet_index    = 1
@@ -38,13 +38,11 @@ class TC_Name_Stored < Test::Unit::TestCase
                00 00 00 06 3B 00 00 00 00 0B 00 00 00 01 00
              ).join('')].pack('H*')
 
-#    result         = _unpack_name(result)
-#    target         = _unpack_name(target)
     assert_equal(unpack_record(target), unpack_record(result))
   end
 
   def test_print_area_name_with_simple_range_in_sheet_3
-    caption        = " \tNAME for worksheet3.print_area('G7:H8')"
+    #caption        = " \tNAME for worksheet3.print_area('G7:H8')"
     name           = [0x06].pack('C')
     encoding       = 0
     sheet_index    = 3
@@ -68,7 +66,7 @@ class TC_Name_Stored < Test::Unit::TestCase
   end
 
   def test_for_repeat_rows_name
-    caption        = " \tNAME for worksheet1.repeat_rows(0, 9)"
+    #caption        = " \tNAME for worksheet1.repeat_rows(0, 9)"
     name           = [0x07].pack('C')
     encoding       = 0
     sheet_index    = 1
@@ -92,7 +90,7 @@ class TC_Name_Stored < Test::Unit::TestCase
   end
 
   def test_for_repeat_rows_name_on_sheet_3
-    caption        = " \tNAME for worksheet3.repeat_rows(6, 7)"
+    #caption        = " \tNAME for worksheet3.repeat_rows(6, 7)"
     name           = [0x07].pack('C')
     encoding       = 0
     sheet_index    = 1
@@ -116,7 +114,7 @@ class TC_Name_Stored < Test::Unit::TestCase
   end
 
   def test_for_repeat_columns_name
-    caption        = " \tNAME for worksheet1.repeat_columns('A:J')"
+    #caption        = " \tNAME for worksheet1.repeat_columns('A:J')"
     name           = [0x07].pack('C')
     encoding       = 0
     sheet_index    = 1
@@ -140,7 +138,7 @@ class TC_Name_Stored < Test::Unit::TestCase
   end
 
   def test_for_repeat_rows_and_repeat_columns_together_name
-    caption        = " \tNAME for repeat_rows(1, 2) repeat_columns(3, 4)"
+    #caption        = " \tNAME for repeat_rows(1, 2) repeat_columns(3, 4)"
     name           = [0x07].pack('C')
     encoding       = 0
     sheet_index    = 1
@@ -165,7 +163,7 @@ class TC_Name_Stored < Test::Unit::TestCase
   end
 
   def test_for_print_area_name_with_simple_range
-    caption        = " \tNAME for worksheet1.autofilter('A1:C5')"
+    #caption        = " \tNAME for worksheet1.autofilter('A1:C5')"
     name           = [0x0D].pack('C')
     encoding       = 0
     sheet_index    = 1
@@ -183,13 +181,11 @@ class TC_Name_Stored < Test::Unit::TestCase
         00 00 00 0D 3B 00 00 00 00 04 00 00 00 02 00
      ).join('')].pack('H*')
 
-#    result         = _unpack_name(result)
-#    target         = _unpack_name(target)
     assert_equal(unpack_record(target), unpack_record(result))
   end
 
   def test_for_define_name_global_name
-    caption        = " \tNAME for worksheet1.define_name('Foo', ...)"
+    #caption        = " \tNAME for worksheet1.define_name('Foo', ...)"
     name           = 'Foo'
     encoding       = 0
     sheet_index    = 0
