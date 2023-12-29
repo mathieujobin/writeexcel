@@ -1615,7 +1615,7 @@ class Worksheet < BIFFWriter
   #
   def repeat_columns(*args)
     # Check for a cell reference in A1 notation and substitute row and column
-    if args[0] =~ /^\D/
+    if args[0].to_s =~ /^\D/
       row1, firstcol, row2, lastcol = substitute_cellref(*args)
     else
       firstcol, lastcol = args
@@ -6950,7 +6950,7 @@ class Worksheet < BIFFWriter
   def row_col_notation(args)   # :nodoc:
     # ruby 3.2 no longer handles =~ for various types
     return args unless args[0].respond_to?(:=~)
-    
+
     if args[0] =~ /^\D/
       substitute_cellref(*args)
     else
